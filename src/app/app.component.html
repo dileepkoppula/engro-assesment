@@ -1,15 +1,54 @@
-<form (ngSubmit)="IsAnagram()" >
-  <div class="form-group">
-    <label for="string1">Enter string 1</label>
-    <input type="text" class="form-control" 
-           [(ngModel)]="string1"  name="string1">
-  </div>
-  <div class="form-group">
-    <label for="string1">Enter string 2</label>
-    <input type="text" class="form-control" 
-           [(ngModel)]="string2" name="string2">
-  </div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <form (ngSubmit)="IsAnagram()">
+          <div class="form-group">
+            <label for="string1">Enter string 1 </label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              [(ngModel)]="string1"
+              name="string1"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="string1">Enter string 2 </label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              [(ngModel)]="string2"
+              name="string2"
+            />
+          </div>
+          <br />
 
-  <button type="submit" class="btn btn-success" >Submit</button>
-  {{anagram}}
-</form>
+          <button
+            type="submit"
+            style="margin-left: 80px; background-color: darkcyan; color: #fff"
+            class="btn btn-success"
+          >
+            Check Anagram
+          </button>
+          <span>
+            <b> {{ anagram }} </b></span
+          >
+        </form>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div></div>
+    <div class="card col-md-4" *ngFor="let item of newsList" >
+      <div class="card-body" style="border: 1px #000;">
+        <h5 class="card-title" style="background-color: aquamarine;">{{item.title}}</h5>
+        <h1>{{item.type}}</h1>
+        <h6>{{item.score}}</h6>
+        <a href="{{item.url}}" class="btn btn-primary" target="{{item.url}}">Go to</a>
+      </div>
+    </div>
+  </div>
+</section>
